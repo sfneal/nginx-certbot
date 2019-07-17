@@ -14,7 +14,10 @@ ENV aws_secret_access_key=""
 ENV aws_region_name=""
 
 # Make Webroot & nginx directory
-RUN mkdir /webroot/ && mkdir /webroot/certbot/ && mkdir /etc/nginx/conf/
+RUN mkdir /webroot/ \
+    && mkdir /webroot/certbot/ \
+    && mkdir /etc/nginx/conf/
+    && chmod -R 777 /webroot/certbot/
 
 # Update OS then install openssl, curl
 RUN apk update && apk add \
