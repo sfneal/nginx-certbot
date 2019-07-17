@@ -64,28 +64,19 @@ if [[ ! -f ${fullchain} ]] || [[ ! -f ${privkey} ]] || [[ ! -f ${cert} ]] || [[ 
     echo "Missing SSL certs for ${domain_current}: fullchain1.pem privkey1.pem"
 
     # Remove archive files
-    rm -rf ${fullchain}
-    echo "Deleted: ${fullchain}"
-    rm -rf ${privkey}
-    echo "Deleted: ${privkey}"
-    rm -rf ${cert}
-    echo "Deleted: ${cert}"
-    rm -rf ${chain}
-    echo "Deleted: ${chain}"
+    rm -rfv ${fullchain}
+    rm -rfv ${privkey}
+    rm -rfv ${cert}
+    rm -rfv ${chain}
 
     # Remove renewal file
-    rm -rf ${renewal}
-    echo "Deleted: ${renewal}"
+    rm -rfv ${renewal}
 
     # Remove live file
-    rm -rf /etc/letsencrypt/archive/${domain_current}/fullchain.pem
-    echo "Deleted: /etc/letsencrypt/archive/${domain_current}/fullchain.pem"
-    rm -rf /etc/letsencrypt/archive/${domain_current}/privkey.pem
-    echo "Deleted: /etc/letsencrypt/archive/${domain_current}/privkey.pem"
-    rm -rf /etc/letsencrypt/archive/${domain_current}/cert.pem
-    echo "Deleted: /etc/letsencrypt/archive/${domain_current}/cert.pem"
-    rm -rf /etc/letsencrypt/archive/${domain_current}/chain.pem
-    echo "Deleted: /etc/letsencrypt/archive/${domain_current}/chain.pem"
+    rm -rfv /etc/letsencrypt/live/${domain_current}/fullchain.pem
+    rm -rfv /etc/letsencrypt/live/${domain_current}/privkey.pem
+    rm -rfv /etc/letsencrypt/live/${domain_current}/cert.pem
+    rm -rfv /etc/letsencrypt/live/${domain_current}/chain.pem
 
     echo "Creating dummy certificate for ${domain_current}..."
     openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
