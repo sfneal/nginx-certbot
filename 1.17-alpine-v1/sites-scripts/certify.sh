@@ -75,6 +75,7 @@ if [[ ! -f ${fullchain} ]] || [[ ! -f ${privkey} ]] || [[ ! -f ${cert} ]] || [[ 
 
     # Remove renewal file
     rm -rf ${renewal}
+    echo "Deleted: ${renewal}"
 
     # Remove live file
     rm -rf /etc/letsencrypt/archive/${domain_current}/fullchain.pem
