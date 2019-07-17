@@ -4,9 +4,6 @@ FROM nginx:1.17-alpine
 ENV domain=example.com
 ENV validation_domain=validation.example.com
 
-# API enabling
-ENV api_enabled=0
-
 # AWS S3 creditentials
 ENV aws_s3=0
 ENV aws_s3_upload=0
