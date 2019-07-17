@@ -14,7 +14,6 @@ replace_domain --domain ${domain_current} \
 
 # Make directory for live SSL certs
 mkdir -m 777 -p /etc/letsencrypt/live/${domain_current}/
-mkdir -m 777 -p /etc/letsencrypt/renewal/${domain_current}/
 
 # Download existing certs from AWS
 if [[ ${aws_s3} -ne 0 ]] && [[ ${aws_s3_download} -ne 0 ]]; then
@@ -56,12 +55,37 @@ fi
 fullchain=/etc/letsencrypt/archive/${domain_current}/fullchain1.pem
 privkey=/etc/letsencrypt/archive/${domain_current}/privkey1.pem
 cert=/etc/letsencrypt/archive/${domain_current}/cert1.pem
+chain=/etc/letsencrypt/archive/${domain_current}/chain1.pem
 renewal=/etc/letsencrypt/renewal/${domain_current}.conf
 
 # Create dummy ssl certs if the fullchain.pem and privkey.pem files are missing
-if [[ ! -f ${fullchain} ]] || [[ ! -f ${privkey} ]]; then
+if [[ ! -f ${fullchain} ]] || [[ ! -f ${privkey} ]] || [[ ! -f ${cert} ]] || [[ ! -f ${chain} ]]; then
     # Create dummy certificate for ${domain_current}
     echo "Missing SSL certs for ${domain_current}: fullchain1.pem privkey1.pem"
+
+    # Remove archive files
+    rm -rf ${fullchain}
+    echo "Deleted: ${fullchain}"
+    rm -rf ${privkey}
+    echo "Deleted: ${privkey}"
+    rm -rf ${cert}
+    echo "Deleted: ${cert}"
+    rm -rf ${chain}
+    echo "Deleted: ${chain}"
+
+    # Remove renewal file
+    rm -rf ${renewal}
+
+    # Remove live file
+    rm -rf /etc/letsencrypt/archive/${domain_current}/fullchain.pem
+    echo "Deleted: /etc/letsencrypt/archive/${domain_current}/fullchain.pem"
+    rm -rf /etc/letsencrypt/archive/${domain_current}/privkey.pem
+    echo "Deleted: /etc/letsencrypt/archive/${domain_current}/privkey.pem"
+    rm -rf /etc/letsencrypt/archive/${domain_current}/cert.pem
+    echo "Deleted: /etc/letsencrypt/archive/${domain_current}/cert.pem"
+    rm -rf /etc/letsencrypt/archive/${domain_current}/chain.pem
+    echo "Deleted: /etc/letsencrypt/archive/${domain_current}/chain.pem"
+
     echo "Creating dummy certificate for ${domain_current}..."
     openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
         -keyout "/etc/letsencrypt/live/${domain_current}/privkey.pem" \
