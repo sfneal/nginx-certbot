@@ -16,7 +16,7 @@ ENV aws_region_name=""
 # Make Webroot & nginx directory
 RUN mkdir /webroot/ \
     && mkdir /webroot/certbot/ \
-    && mkdir /etc/nginx/conf/
+    && mkdir /etc/nginx/conf/ \
     && chmod -R 777 /webroot/certbot/
 
 # Update OS then install openssl, curl
