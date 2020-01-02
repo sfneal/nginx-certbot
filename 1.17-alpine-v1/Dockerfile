@@ -30,11 +30,10 @@ RUN apk update && apk add \
 RUN pip3 install --upgrade pip \
     && pip3 install \
         replace_domain>=1.0.4 \
-        awsutils-s3>=0.3.13
+        awsutils-s3>=0.3.20
 
 # Download recommended TLS parameters
-RUN curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot-nginx/certbot_nginx/options-ssl-nginx.conf > "/etc/nginx/options-ssl-nginx.conf" \
-    && curl -s https://raw.githubusercontent.com/certbot/certbot/master/certbot/ssl-dhparams.pem > "/etc/nginx/ssl-dhparams.pem"
+COPY --from=stephenneal/nginx-laravel:1.17-alpine-v10 /etc/nginx/ /etc/nginx/
 
 # Copy configuration
 COPY ./scripts/ /scripts/
