@@ -1,4 +1,4 @@
-FROM nginx:1.17-alpine
+FROM nginx:1.18-alpine
 
 # Domain environment variable
 ENV domain=example.com
