@@ -24,7 +24,8 @@ RUN apk update && apk add \
     bash \
     curl \
     openssl \
-    python3
+    python3 \
+    py3-pip
 
 # Install replace_domain & awsutils-s3
 RUN pip3 install --upgrade pip \
