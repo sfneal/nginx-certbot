@@ -1,6 +1,4 @@
 language: ruby
-os: linux
-arch: arm64-graviton2
 
 services:
   - docker
