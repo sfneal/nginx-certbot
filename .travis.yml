@@ -9,9 +9,9 @@ env:
     - secure: ebCnMCCJeYz8lOSWPPg1HGcnyqOTHfqczH9c2aUEIx2NaSUcAKtq7vsZ4WtXn8N++7EK5JqRxskQwS7Oak/J4dsR/kpzb44GnxTg3u+gm37DLSyU7NDggtDPqJGwubOc47hlxKyLaTJjLqX2FvQw2tqcHruqe4oScWGA9FGv5qFx4wN9lgpfwgzFDpHaLbWCduA9u9bmwR7VhZ69KN6MOUXPxnqAeVrRRlafb1gNTYLPYDoLLfDoQUHyXhXUwXAkwpuB6iqKqdMLWPnKSOfQze4pmOmzLvqISVCx3rRDbPjNAo7slQG1dAndEMB+zvInE0/a/TX452HnWYh7njjc8dT6sIinimAAIx3O2evFxgtTN8YX/PsLsFbvnG6iJjqyHwRNEGWziQG3X/W1pqkE8p9BuhDZ+70zkrY03ONfADKX2w3UuoxEZE9CL8k1z/ocYMkOQZjWhAI4gR+wpBPgk4tNqDsY7xM4maZ5E7k6XIYFXPQ4nbZYfRth1QIEiJ2X25mh756vBYFjqpAqY9DCAnswdiun9UcNRA5bW8VXhdkMd7hfmzQBcxKMWV/CYJyw8q3T+/ND/SLStJd+fgnaMZcdvgwspVIvefXkbRQ27aH+ryfyAeImqNqOmQnMCqhk6LU3q7Nj96EZbUnuOTd0JWLwfjR0vjgXA29OHzjL7F8=
 
   matrix:
-    - TAG=1.17-alpine-v1
-    - TAG=1.18-alpine-v1
     - TAG=1.19-alpine-v1
+    - TAG=1.18-alpine-v1
+    - TAG=1.17-alpine-v1
 
 before_script:
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
