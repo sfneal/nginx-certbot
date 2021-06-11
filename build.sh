@@ -18,4 +18,6 @@ if [ "$TAG" != null ]
     docker build -t stephenneal/nginx-certbot:1.17-alpine-v1 "${DIR}"/1.17-alpine-v1/
     docker build -t stephenneal/nginx-certbot:1.18-alpine-v1 "${DIR}"/1.18-alpine-v1/
     docker build -t stephenneal/nginx-certbot:1.19-alpine-v1 "${DIR}"/1.19-alpine-v1/
+    docker build -t stephenneal/nginx-certbot:1.20-alpine-v1 "${DIR}"/1.20-alpine-v1/
+    docker build -t stephenneal/nginx-certbot:1.21-alpine-v1 "${DIR}"/1.21-alpine-v1/
 fi
