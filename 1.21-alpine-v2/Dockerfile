@@ -2,7 +2,6 @@ FROM nginx:1.21-alpine
 
 # Domain environment variable
 ENV domain=example.com
-ENV validation_domain=validation.example.com
 
 # AWS S3 creditentials
 ENV aws_s3=0
