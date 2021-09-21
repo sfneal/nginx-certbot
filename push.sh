@@ -22,4 +22,5 @@ if [ "$TAG" != null ]
     docker push stephenneal/nginx-certbot:1.19-alpine-v1
     docker push stephenneal/nginx-certbot:1.20-alpine-v1
     docker push stephenneal/nginx-certbot:1.21-alpine-v1
+    docker push stephenneal/nginx-certbot:1.21-alpine-v2
 fi
