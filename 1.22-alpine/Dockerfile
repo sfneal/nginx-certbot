@@ -1,9 +1,8 @@
-FROM nginx:1.17-alpine
+FROM nginx:1.22-alpine
 MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
 # Domain environment variable
 ENV domain=example.com
-ENV validation_domain=validation.example.com
 
 # AWS S3 creditentials
 ENV aws_s3=0
@@ -25,7 +24,8 @@ RUN apk update && apk add \
     bash \
     curl \
     openssl \
-    python3
+    python3 \
+    py3-pip
 
 # Install Python dependencies
 COPY ./requirements.txt ./requirements.txt

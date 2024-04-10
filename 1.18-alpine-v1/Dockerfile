@@ -1,4 +1,5 @@
 FROM nginx:1.18-alpine
+MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
 # Domain environment variable
 ENV domain=example.com
@@ -26,11 +27,11 @@ RUN apk update && apk add \
     openssl \
     python3
 
-# Install replace_domain & awsutils-s3
+# Install Python dependencies
+COPY ./requirements.txt ./requirements.txt
 RUN pip3 install --upgrade pip \
-    && pip3 install \
-        replace_domain>=1.0.4 \
-        awsutils-s3>=0.3.20
+	&& pip3 install -r ./requirements.txt \
+	&& rm ./requirements.txt
 
 # Download recommended TLS parameters
 COPY --from=stephenneal/nginx-laravel:1.17-alpine-v10 /etc/nginx/ /etc/nginx/
