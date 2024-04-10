@@ -1,4 +1,5 @@
 FROM nginx:1.21-alpine
+MAINTAINER Stephen Neal <stephen@stephenneal.net>
 
 # Domain environment variable
 ENV domain=example.com
