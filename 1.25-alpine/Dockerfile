@@ -29,8 +29,8 @@ RUN apk update && apk add \
 
 # Install Python dependencies
 COPY ./requirements.txt ./requirements.txt
-RUN pip3 install --upgrade pip \
-	&& pip3 install -r ./requirements.txt \
+RUN pip3 install --break-system-package --upgrade pip \
+	&& pip3 install --break-system-package -r ./requirements.txt \
 	&& rm ./requirements.txt
 
 # Download recommended TLS parameters
