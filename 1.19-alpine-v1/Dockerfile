@@ -34,12 +34,9 @@ RUN pip3 install --upgrade pip \
 	&& pip3 install -r ./requirements.txt \
 	&& rm ./requirements.txt
 
-# Download recommended TLS parameters
-COPY --from=stephenneal/nginx-laravel:1.17-alpine-v10 /etc/nginx/ /etc/nginx/
-
 # Copy configuration
 COPY ./scripts/ /scripts/
-COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx /etc/nginx/
 COPY ./sites-scripts/ /sites-scripts/
 
 ENTRYPOINT ["bash"]
