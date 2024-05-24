@@ -25,7 +25,9 @@ RUN apk update && apk add \
     curl \
     openssl \
     python3 \
-    py3-pip
+    py3-pip \
+    py3-six \
+    py-packaging
 
 # Install Python dependencies
 COPY ./requirements.txt ./requirements.txt
