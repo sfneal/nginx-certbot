@@ -28,7 +28,7 @@ RUN apk update && apk add \
     python3 \
     py3-pip \
     py3-six \
-    py-packaging
+    py3-packaging
 
 # Install Python dependencies
 COPY ./requirements.txt ./requirements.txt
