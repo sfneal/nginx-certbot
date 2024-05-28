@@ -29,7 +29,8 @@ RUN apk update && apk add \
     py3-pip \
     py3-six \
     py3-packaging \
-    py3-distlib
+    py3-distlib \
+    py3-pep517
 
 # Install Python dependencies
 COPY ./requirements.txt ./requirements.txt
