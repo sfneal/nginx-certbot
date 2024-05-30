@@ -30,10 +30,11 @@ RUN apk update && apk add \
     py3-packaging
 
 # Install Python dependencies
-COPY ./requirements.txt ./requirements.txt
+COPY ["requirements-base.txt", "requirements.txt", "./"]
 RUN pip3 install --break-system-package --upgrade pip \
-	&& pip3 install --break-system-package -r ./requirements.txt \
-	&& rm ./requirements.txt
+    && pip3 install --break-system-package -r ./requirements.txt \
+    && rm ./requirements-base.txt \
+    && rm ./requirements.txt
 
 # Copy configuration
 COPY ./scripts/ /scripts/
