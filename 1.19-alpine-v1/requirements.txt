@@ -31,7 +31,7 @@ replace_domain==1.1.0
 requests==2.32.3
 requests-file==2.1.0
 retrying==1.3.4
-rsa==4.7.2
+rsa==4.8
 s3transfer==0.10.1
 six>=1.15.0
 tldextract==5.1.2
