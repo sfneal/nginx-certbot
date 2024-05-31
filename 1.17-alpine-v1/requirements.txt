@@ -12,7 +12,7 @@ looptools==1.2.4
 pyasn1==0.6.0
 python-dateutil==2.9.0.post0
 PyYAML==6.0.1
-replace_domain==1.0.5
+replace_domain==1.1.0
 requests==2.32.3
 requests-file==2.1.0
 rsa==4.7.2
