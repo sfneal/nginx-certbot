@@ -79,7 +79,7 @@ if [[ ! -f ${fullchain} ]] || [[ ! -f ${privkey} ]] || [[ ! -f ${cert} ]] || [[ 
     rm -rfv /etc/letsencrypt/live/${domain_current}/chain.pem
 
     echo "Creating dummy certificate for ${domain_current}..."
-    openssl req -x509 -nodes -newkey rsa:1024 -days 1 \
+    openssl req -x509 -nodes -newkey rsa:2048 -days 1 \
         -keyout "/etc/letsencrypt/live/${domain_current}/privkey.pem" \
         -out "/etc/letsencrypt/live/${domain_current}/fullchain.pem" \
         -subj "/CN=localhost"
